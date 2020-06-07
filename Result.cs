@@ -35,6 +35,18 @@ namespace HackerRank_Problem_Solving
 
         }
 
+        public static void MiniMaxSum(int[] arr)
+        {
+
+            long maxValue = arr.Max();
+            long minValue = arr.Min();
+
+            var sumMin = arr.Sum(v => (long)v) - maxValue;
+            var sumMax = arr.Sum(v => (long)v) - minValue;
+            Console.WriteLine($"{sumMin} {sumMax}");
+
+        }
+
         public static void PlusMinus(int[] arr)
         {
             int n = arr.Length;
@@ -58,9 +70,9 @@ namespace HackerRank_Problem_Solving
         {
             for (int i = 0; i < v; i++)
             {
-                Console.WriteLine(new string('#',i+1).PadLeft(v, ' '));
+                Console.WriteLine(new string('#', i + 1).PadLeft(v, ' '));
             }
-            
+
         }
 
     }

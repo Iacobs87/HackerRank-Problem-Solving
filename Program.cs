@@ -28,7 +28,10 @@ namespace HackerRank_Problem_Solving
             //Result.StairCase(10);
 
             //Mini-Max Sum
-            
+
+            int[] arr = new int[] { 256741038, 623958417, 467905213, 714532089, 938071625 };
+            Result.MiniMaxSum(arr);
+
 
 
         }
