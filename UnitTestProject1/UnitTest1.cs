@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HackerRank_Problem_Solving;
 using System.Collections.Generic;
 using System.IO.Compression;
+using System.Linq;
 
 namespace UnitTestProject1
 {
@@ -175,8 +176,225 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        [TestProperty("BreakingTheRecord", "https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem")]
+        public void BreakingTheRecord()
+        {
+            //arrange
+            var test = new Result();
+            int[] scores = new int[] { 3, 4, 21, 36, 10, 28, 35, 5, 24, 42 };
+            var expected = new int[] { 4, 0 };
 
+            //act
+            var actual = test.BreakingTheRecord(scores);
 
+            //assert
+            CollectionAssert.AreEquivalent(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("Birthday", "https://www.hackerrank.com/challenges/the-birthday-bar/problem")]
+        public void Birthday()
+        {
+            //arrange
+            var test = new Result();
+            List<int> s = new List<int>() { 1, 2, 1, 3, 2 };
+            var d = 3;
+            var m = 2;
+            var expected = 2;
+
+            //act 
+            var actual = test.Birthday(s, d, m);
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("DivisibleSum", "https://www.hackerrank.com/challenges/divisible-sum-pairs/problem")]
+        public void DivisbleSum()
+        {
+            //arrange
+            var test = new Result();
+            var n = 6;
+            var k = 3;
+            var ar = new int[] { 1, 3, 2, 6, 1, 2 };
+            var expected = 5;
+
+            //act 
+            var actual = test.DivisibleSumPair(n, k, ar);
+
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("MigratoryBirds", "https://www.hackerrank.com/challenges/migratory-birds/problem")]
+        public void MigratoryBirds()
+        {
+            //arrange
+            var test = new Result();
+            var arr = new List<int>() { 1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4 };
+            var expected = 3;
+
+            //act 
+            var actual = test.MigratoryBirds(arr);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("DayOfTheProgrammer", "https://www.hackerrank.com/challenges/day-of-the-programmer/problem")]
+        public void DayOfTheProgrammer()
+        {
+            //arrange
+            var test = new Result();
+            var year1 = 2016;
+            var year2 = 2017;
+            var year3 = 1918;
+            var expected1 = "12.09.2016";
+            var expected2 = "13.09.2017";
+            var expected3 = "26.09.1918";
+
+            //act 
+            var actual1 = test.DayOfTheProgrammer(year1);
+            var actual2 = test.DayOfTheProgrammer(year2);
+            var actual3 = test.DayOfTheProgrammer(year3);
+
+            //assert
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
+            Assert.AreEqual(expected3, actual3);
+        }
+
+        [TestMethod]
+        [TestProperty("BonAppetit", "https://www.hackerrank.com/challenges/bon-appetit/problem")]
+        public void BonAppetit()
+        {
+            //arrange
+            var test = new Result();
+            var bill1 = new List<int>() { 3, 10, 2, 9 };
+            var bill2 = new List<int>() { 3, 10, 2, 9 };
+            var k1 = 1;
+            var k2 = 1;
+            var b1 = 12;
+            var b2 = 7;
+            var expected1 = "5";
+            var expected2 = "Bon Appetit";
+
+            //act 
+            var actual1 = test.BonAppetit(bill1, k1, b1);
+            var actual2 = test.BonAppetit(bill2, k2, b2);
+
+            //assert
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected2, actual2);
+        }
+
+        [TestMethod]
+        [TestProperty("SockMerchant", "https://www.hackerrank.com/challenges/sock-merchant/problem")]
+        public void SockMerchant()
+        {
+            //arrange
+            var test = new Result();
+            var ar = new int[] { 1, 3, 1, 3, 1, 3, 3, 1, 3, 2 };
+            var n = 10;
+            var expected = 4;
+            
+            //act 
+            var actual = test.SockMerchant(n, ar);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("DrawingBook", "https://www.hackerrank.com/challenges/drawing-book/problem")]
+        public void DrawingBook()
+        {
+            //arrange
+            var test = new Result();
+            var p = 2;
+            var n = 6;
+            var expected = 1;
+
+            //act 
+            var actual = test.PageCount(n, p);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("CountingValley", "https://www.hackerrank.com/challenges/counting-valleys/problem")]
+        public void CountingValley()
+        {
+            //arrange
+            var test = new Result();
+            var n = 8;
+            var s = "UDDDUDUU";
+            var expected = 1;
+
+            //act 
+            var actual = test.CountingValleys(n, s);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("GetMoneySpent", "https://www.hackerrank.com/challenges/electronics-shop/problem?h_r=next-challenge&h_v=zen")]
+        public void ElectronicsShop()
+        {
+            //arrange
+            var test = new Result();
+            int[] keyboards = new int[] { 3, 1 };
+            int[] drives = new int[] { 5, 2, 8 };
+            var b = 10;
+            var expected = 9;
+
+            //act 
+            var actual = test.GetMoneySpent(keyboards, drives, b);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        [TestProperty("CatandMouse", "https://www.hackerrank.com/challenges/cats-and-a-mouse/problem")]
+        public void CatAndMouse()
+        {
+            //arrange
+            var test = new Result();
+            int x = 1;
+            int y = 2;
+            int z = 3;
+            var expected = "Cat B";
+            //act 
+            var actual = test.CatandMouse(x, y, z);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("PickingNumbers", "https://www.hackerrank.com/challenges/picking-numbers/problem")]
+        public void PickingNumbers()
+        {
+            //arrange
+            var test = new Result();
+            List<int> a = new List<int>() { 4, 6, 5, 3, 3, 1 };
+            var expected = 3;
+
+            //act 
+            var actual = test.PickingNumbers(a);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
 
         [TestMethod]
         [TestProperty("Name", "Link")]

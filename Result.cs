@@ -9,7 +9,6 @@ namespace HackerRank_Problem_Solving
 
     public class Result
     {
-
         public List<string> FizzBuzz(int n)
         {
             var result = new List<string>();
@@ -73,7 +72,7 @@ namespace HackerRank_Problem_Solving
             int ox = oranges.Where(x => s <= (b + x) && (x + b) <= t).Count();
             Console.WriteLine(ax);
             Console.WriteLine(ox);
-            
+
             var result = new int[2];
             result[0] = ax;
             result[1] = ox;
@@ -84,7 +83,7 @@ namespace HackerRank_Problem_Solving
         {
             var response = new List<int>();
             foreach (var grade in grades)
-            {               
+            {
                 {
                     if (grade % 5 < 3 || grade < 38)
                     {
@@ -113,12 +112,12 @@ namespace HackerRank_Problem_Solving
                 return result;
             }
 
-            start = a[a.Count - 1] ;
+            start = a[a.Count - 1];
             var diff = b[0] - a[a.Count - 1];
-            
-            for (int i = 0; i < diff+1; i++)
+
+            for (int i = 0; i < diff + 1; i++)
             {
-                
+
                 var isok = true;
 
                 foreach (var number in a)
@@ -139,7 +138,7 @@ namespace HackerRank_Problem_Solving
                         }
                     }
                 }
-                
+
 
                 if (isok)
                 {
@@ -148,15 +147,15 @@ namespace HackerRank_Problem_Solving
                 start += 1;
             }
 
-            
+
             Console.WriteLine(result);
             return result;
-            
+
         }
 
         public string Kangaroo(int x1, int v1, int x2, int v2)
         {
-         string result = "";
+            string result = "";
 
             while (x1 < x2)
             {
@@ -233,6 +232,289 @@ namespace HackerRank_Problem_Solving
 
         }
 
+        public int[] BreakingTheRecord(int[] scores)
+        {
+            var low = scores[0];
+            var high = scores[0];
+            var nLow = 0;
+            var nHigh = 0;
+            var result = new int[2];
+
+            foreach (var score in scores)
+            {
+                if (low > score)
+                {
+                    low = score;
+                    nLow += 1;
+                }
+
+                if (high < score)
+                {
+                    high = score;
+                    nHigh += 1;
+                }
+            }
+
+            result[0] = nHigh;
+            result[1] = nLow;
+
+            return result;
+
+
+        }
+
+        public int Birthday(List<int> s, int d, int m)
+        {
+            var count = 0;
+            int l = s.Count;
+
+            for (int i = 0; i < l; i++)
+            {
+                if (s.Skip(i).Take(m).Sum() == d)
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        public int DivisibleSumPair(int n, int k, int[] ar)
+        {
+            int result = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if ((ar[i] + ar[j]) % k == 0)
+                    {
+                        result += 1;
+                    }
+                }
+
+            }
+
+            return result;
+        }
+
+        public int MigratoryBirds(List<int> arr)
+        {
+            var result = 0;
+            var lenght = arr.Count;
+            var dic = new Dictionary<int, int>();
+            dic.Add(1, 0);
+            dic.Add(2, 0);
+            dic.Add(3, 0);
+            dic.Add(4, 0);
+            dic.Add(5, 0);
+
+            for (int i = 0; i < lenght; i++)
+            {
+                dic[arr[i]]++;
+            }
+
+            result = dic.FirstOrDefault(Q => Q.Value == dic.Values.Max()).Key;
+
+            return result;
+
+        }
+
+        public string DayOfTheProgrammer(int year)
+        {
+            string day = ".09." + year.ToString();
+            if (year == 1918)
+            {
+                day = "26" + day;
+            }
+            else if (((year < 1918) && (year % 4 == 0)) ||
+                    ((year > 1918) && ((year % 400 == 0) ||
+                     (year % 4 == 0 && year % 100 != 0))))
+                day = "12" + day;
+            else
+                day = "13" + day;
+
+            return day;
+
+        }
+
+        public string BonAppetit(List<int> bill, int k, int b)
+        {
+            var result = "";
+            var iDontEat = bill.ElementAt(k);
+            var totalBill = bill.Sum();
+            var correctSplit = (totalBill - iDontEat) / 2;
+
+            if (b == correctSplit)
+            {
+                Console.WriteLine("Bon Appetit");
+                result = "Bon Appetit";
+                return result;
+            }
+            else
+            {
+                Console.WriteLine(b - correctSplit);
+                result = (b - correctSplit).ToString();
+
+                return result;
+            }
+        }
+
+        public int SockMerchant(int n, int[] ar)
+        {
+            var result = 0;
+
+            result = ar.GroupBy(a => a).Sum(a => a.Count() / 2);
+
+            return result;
+        }
+
+        public int PageCount(int n, int p)
+        {
+            var result = 0;
+
+            result = Math.Min(p / 2, n / 2 - p / 2);
+
+            return result;
+        }
+
+        public int CountingValleys(int n, string s)
+        {
+            var count = 0;
+            char[] arr = s.ToCharArray();
+            var level = 0;
+       
+            for (int i = 0; i < arr.Length; i++)
+            {
+
+                if (arr[i] == 'U')
+                {
+                    if (++level == 0)
+                    {
+                        count++;
+                    }
+                }
+                else
+                    level--;
+
+            }
+            return count;
+        }
+
+        public int GetMoneySpent(int[] keyboards, int[] drives, int b)
+        {
+            int maxSum = -1;            
+            Array.Sort(keyboards);
+            Array.Sort(drives);
+            Array.Reverse(drives);
+
+            List<int> keyboardsList = keyboards.OfType<int>().ToList();
+            List<int> drivesList = drives.OfType<int>().ToList();
+
+            
+
+
+            if (keyboards.Min() + drives.Min() > b)
+                return -1;
+
+            for (int i = 0; i < keyboards.Length; i++)
+            {
+                for (int j = 0; j < drives.Length; j++)
+                {
+                    if (keyboards[i] + drives[j] > b)
+                        break;
+                    if ((int)(keyboards[i] + drives[j]) > maxSum)
+                    {
+                        maxSum = (int)(keyboards[i] + drives[j]);
+                    }
+
+                }
+            }
+
+            return maxSum;
+        }
+
+        public string CatandMouse(int x, int y, int z)
+        {
+            string result = "";
+            var d1 = 0;
+            var d2 = 0;
+
+            d1 = Math.Abs(z - x);
+            d2 = Math.Abs(z - y);
+
+            if (d1 > d2)
+            {
+                result = "Cat B";
+            }
+            else if (d1 < d2)
+            {
+                result = "Cat A";
+            }
+            else
+            {
+                result = "Mouse C";
+            }
+            return result;
+        }
+
+        public int PickingNumbers(List<int> a)
+        {
+            //var maxCount = 0;
+            //var currCount = 0;
+            //var fi = 0;
+
+            //a.Sort();
+
+            //if (a.Count == 0)
+            //{
+            //    return 0;
+            //}
+
+            //for (int i = 0; i < a.Count; i++)
+            //{
+            //    if (Math.Abs(a[fi] -a[i]) == 0)
+            //    {
+            //        if (currCount == 0)
+            //        {
+            //            currCount = 2;
+            //        }
+            //        else
+            //            currCount++;
+
+            //        if (currCount > maxCount)
+            //        {
+            //            maxCount = currCount;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        currCount = 0;
+            //        fi = i;
+            //    }
+            //}
+
+            //return maxCount;
+
+            int max = 0;
+            int[] values = new int[102];
+            for (int i = 0; i < a.Count; i++)
+            {
+                values[a[i]]++;
+                if (max < values[a[i] - 1] + values[a[i]])
+                {
+                    max = values[a[i] - 1] + values[a[i]];
+                }
+                if (max < values[a[i]] + values[a[i] + 1])
+                {
+                    max = values[a[i]] + values[a[i] + 1];
+                }
+            }
+            return max;
+        }
+
+
     }
+    
 
 }
