@@ -513,8 +513,71 @@ namespace HackerRank_Problem_Solving
             return max;
         }
 
+        public int HurdleRace(int k, int[] height)
+        {
+            var noPotions = 0;
 
-    }
-    
+            var maxheigth = height.Max();
 
+            noPotions = maxheigth - k;
+
+            if (noPotions > 0)
+            {
+                return noPotions;
+            }
+            else
+                return 0;
+
+        }
+
+        public int DesignerPdfViewer(int[]h, string word)
+        {
+            int tallestLetter = 0;
+
+            for (int i = 0; i < word.Length; i++)
+            {
+                Console.WriteLine((int)word[i]);
+                if (h[(int)word[i] -97] > tallestLetter)
+                {
+                    tallestLetter = h[(int)word[i] - 97];
+                }
+            }
+
+            return tallestLetter * word.Length;
+        }
+
+        public int UtopianTree(int n)
+        {
+            var result = 1;
+            for (int i = 0; i < n; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    result *= 2;
+                }
+                else
+                {
+                    result += 1;
+                }
+            }
+
+            return result;
+
+        }
+
+        public string AngryProfessor(int k, int[] a)
+        {
+            var studentCount = a.Where(i => i <= 0).Count();
+
+            if (studentCount >= k)
+            {
+                return "NO";
+            }
+            else
+                return "YES";
+
+        }
+
+
+    }   
 }

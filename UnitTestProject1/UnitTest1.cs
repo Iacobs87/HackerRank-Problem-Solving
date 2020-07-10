@@ -397,14 +397,107 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        [TestProperty("HurdleRace", "https://www.hackerrank.com/challenges/the-hurdle-race/problem")]
+        public void HurdleRace()
+        {
+            //arrange
+            var test = new Result();
+            var k = 4;
+            int[] height = { 1, 6, 3, 5, 2 };
+            var expected = 2;
+
+            //act
+            var actual = test.HurdleRace(k, height);
+
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("DesignerPdfViewer", "https://www.hackerrank.com/challenges/designer-pdf-viewer/problem")]
+        public void DesignerPdfViewer()
+        {
+            //arrange
+            var test = new Result();
+            int[] h = new int[] {1,3,1,3,1,4,1,3,2,5,5,5,5,5,5 } ;
+            string word = "abc";
+            var expected = 9;
+
+            //act 
+            var actual = test.DesignerPdfViewer(h, word);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("UtopianTree", "https://www.hackerrank.com/challenges/utopian-tree/problem")]
+        public void UtopianTree()
+        {
+            //arrange
+            var test = new Result();
+            var n = 4;
+            var expected = 7;
+
+            //act 
+            var actual = test.UtopianTree(n);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("AngryProfessor", "https://www.hackerrank.com/challenges/angry-professor/problem")]
+        public void AngryProfessor()
+        {
+            //arrange
+            var test = new Result();
+            int[] a1 = new int[] { 23, -35, -2, 58, -67, -56, -42, -73, -19, 37 };
+            int[] a2 = new int[] { 13, 91, 56, -62, 96, -5, -84, -36, -46, -13 };
+            int[] a3 = new int[] { 45, 67, 64, -50, -8, 78, 84, -51, 99, 60 };
+            int[] a4 = new int[] { 26, 94, -95, 34, 67, -97, 17, 52, 1, 86 };
+            int[] a5 = new int[] { 19, 29, -17, -71, -75, -27, -56, -53, 65, 83 };
+
+            var k1 = 10;
+            var k2 = 9;
+            var k3 = 8;
+            var k4 = 7;
+            var k5 = 2;
+
+            var expected1 = "YES";
+            var expected2 = "NO";
+
+            //act 
+            var actual1 = test.AngryProfessor(k1, a1);
+            var actual2 = test.AngryProfessor(k2, a2);
+            var actual3 = test.AngryProfessor(k3, a3);
+            var actual4 = test.AngryProfessor(k4, a4);
+            var actual5 = test.AngryProfessor(k5, a5);
+
+            //assert
+            Assert.AreEqual(expected1, actual1);
+            Assert.AreEqual(expected1, actual2);
+            Assert.AreEqual(expected1, actual3);
+            Assert.AreEqual(expected1, actual4);
+            Assert.AreEqual(expected2, actual5);
+            
+        }
+
+        [TestMethod]
         [TestProperty("Name", "Link")]
         public void s()
         {
             //arrange
-            
+
             //act 
 
             //assert
         }
+
+
     }
+
+       
+    
 }
