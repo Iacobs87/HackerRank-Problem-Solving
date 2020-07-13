@@ -578,6 +578,21 @@ namespace HackerRank_Problem_Solving
 
         }
 
+        public int ViralAdvertising(int n)
+        {
+            int people = 5;
+            int totalLikes = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                people = people / 2;
+                totalLikes += people;
+                people *= 3;
+            }
+
+            return totalLikes;
+        }
+
 
     }   
 }

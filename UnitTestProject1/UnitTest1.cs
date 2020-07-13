@@ -484,6 +484,23 @@ namespace UnitTestProject1
             
         }
 
+
+        [TestMethod]
+        [TestProperty("ViralAdvertising", "https://www.hackerrank.com/challenges/strange-advertising/problem")]
+        public void ViralAdvertising()
+        {
+            //arrange
+            var test = new Result();
+            var n = 3;
+            var expected = 9;
+
+            //act 
+            var actual = test.ViralAdvertising(n);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
         [TestMethod]
         [TestProperty("Name", "Link")]
         public void s()
