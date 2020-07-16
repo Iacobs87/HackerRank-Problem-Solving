@@ -502,6 +502,60 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        [TestProperty("SaveThePrisoner", "https://www.hackerrank.com/challenges/save-the-prisoner/problem")]
+        public void SaveThePrisoner()
+        {
+            //arrange
+            var test = new Result();
+            var n = 5;
+            var m = 2;
+            var s = 1;
+            var expected = 2;
+
+            //act 
+            var actual = test.SaveThePrisoner(n, m, s);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("CircularArray", "https://www.hackerrank.com/challenges/circular-array-rotation/problem")]
+        public void CircularArray()
+        {
+            //arrange
+            var test = new Result();
+            var a = new int[] { 1, 2, 3 };
+            var k = 2;
+            var queries = new int[] { 0, 1, 2 };
+            var expected = new int[] { 2, 3, 1 };
+
+            //act 
+            var actual = test.CircularArrayRotation(a, k, queries);
+
+            //assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("CloudJump", "https://www.hackerrank.com/challenges/jumping-on-the-clouds-revisited/problem")]
+        public void CloudJump()
+        {
+            //arrange
+            var test = new Result();
+            int[] c = new int[] { 0, 0, 1, 0, 0, 1, 1, 0 };
+            var k = 2;
+            var expected = 92;
+
+            //act 
+            var actual = test.CloudJumping(c, k);
+
+            //assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         [TestProperty("Name", "Link")]
         public void s()
         {

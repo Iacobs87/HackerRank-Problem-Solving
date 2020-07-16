@@ -593,6 +593,53 @@ namespace HackerRank_Problem_Solving
             return totalLikes;
         }
 
+        public int SaveThePrisoner(int n, int m, int s)
+        {
+            var result = 0;
+
+            result = (s + m - 1) % n;
+
+            if ((s + m - 1) % n == 0)
+            {
+                return n;
+            }
+
+            return result;
+        }
+
+        public int[] CircularArrayRotation(int[] a, int k, int[] queries)
+        {
+            int[] result = new int[a.Length];
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                result[(i + k) % a.Length] = a[i];
+            }
+
+            for (int i = 0; i < queries.Length; i++)
+            {
+                queries[i] = result[queries[i]];
+            }
+
+            return queries;
+        }
+
+        public int CloudJumping(int[] c, int k)
+        {
+            var energy = 100;
+            var numberOfClouds = c.Length;
+            var i = k % numberOfClouds;
+
+            energy -= c[i] * 2 + 1;
+
+            while ( i != 0)
+            {
+                i = (i + k) % numberOfClouds;
+                energy -= c[i] * 2 + 1;
+            }
+
+            return energy;
+        }
 
     }   
 }
