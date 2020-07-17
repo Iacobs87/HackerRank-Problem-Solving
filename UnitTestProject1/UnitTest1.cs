@@ -4,6 +4,7 @@ using HackerRank_Problem_Solving;
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
+using System.Numerics;
 
 namespace UnitTestProject1
 {
@@ -552,6 +553,56 @@ namespace UnitTestProject1
 
             //assert
 
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("FindDigits", "https://www.hackerrank.com/challenges/find-digits/problem")]
+        public void FindDigits()
+        {
+            //arrange
+            var test = new Result();
+            var n = 123456789;
+            var expected = 3;
+
+            //act 
+            var actual = test.FindDigits(n);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("BigFactorial", "https://www.hackerrank.com/challenges/extra-long-factorials/problem")]
+        public void BigFactorial()
+        {
+            //arrange
+            var test = new Result();
+            var n = 25;
+            var expected = new BigInteger(15511210043330985984000000M);
+            
+            //act 
+            var actual = test.ExtraLongFactorial(n);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("AppendAndDelete", "https://www.hackerrank.com/challenges/append-and-delete/problem")]
+        public void AppendAndDelete()
+        {
+            //arrange
+            var test = new Result();
+            var s = "hackerhappy";
+            var t = "hackerrank";
+            var k = 9;
+            var expected = "Yes";
+
+            //act 
+            var actual = test.AppendAndDelete(s, t, k);
+
+            //assert
             Assert.AreEqual(expected, actual);
         }
 

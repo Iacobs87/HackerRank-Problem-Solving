@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using System.Runtime.Remoting.Messaging;
 using System.Collections.Generic;
+using System.Numerics;
 
 namespace HackerRank_Problem_Solving
 {
@@ -640,6 +641,81 @@ namespace HackerRank_Problem_Solving
 
             return energy;
         }
+
+        public int FindDigits(int n)
+        {
+            int totalDigitsThatDivide = 0;
+            List<int> listOfDigits = new List<int>();
+            var test = n;
+
+            while (test > 0)
+            {
+                listOfDigits.Add(test % 10);
+                test = test / 10;
+
+            }
+
+            foreach (var digit in listOfDigits)
+            {
+
+                if (digit !=0)
+                {
+                    if (n % digit == 0)
+                    {
+                        totalDigitsThatDivide++;
+                    } 
+                }
+            }
+
+            return totalDigitsThatDivide;
+        }
+
+        public BigInteger ExtraLongFactorial(int n)
+        {
+            BigInteger factorial = new BigInteger(1);
+            
+
+            while (n!=1)
+            {
+                factorial = factorial * n;
+                n--;
+            }
+
+            return factorial;
+        }
+
+        public string AppendAndDelete(string s, string t, int k)
+        {
+            var sLength = s.Length;
+            var tLength = t.Length;
+
+            if (sLength + tLength < k) 
+                return "Yes";
+
+            var minLength = Math.Min(sLength, tLength);
+            var maxLength = Math.Max(sLength, tLength);
+            var commonCount = 0;
+
+            for (var i = 0; i < minLength; i++)
+            {
+                if (!char.Equals(s[i], t[i]))
+                    break;
+
+                commonCount++;
+            }
+
+            var minDiff = minLength - commonCount;
+            var maxDiff = maxLength - commonCount;
+
+            if (minDiff + maxDiff <= k && (k - (minDiff + maxDiff)) % 2 == 0)
+                return "Yes";
+
+            return "No";
+        }
+
+        
+
+
 
     }   
 }
