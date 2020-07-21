@@ -384,7 +384,7 @@ namespace HackerRank_Problem_Solving
             var count = 0;
             char[] arr = s.ToCharArray();
             var level = 0;
-       
+
             for (int i = 0; i < arr.Length; i++)
             {
 
@@ -404,7 +404,7 @@ namespace HackerRank_Problem_Solving
 
         public int GetMoneySpent(int[] keyboards, int[] drives, int b)
         {
-            int maxSum = -1;            
+            int maxSum = -1;
             Array.Sort(keyboards);
             Array.Sort(drives);
             Array.Reverse(drives);
@@ -412,7 +412,7 @@ namespace HackerRank_Problem_Solving
             List<int> keyboardsList = keyboards.OfType<int>().ToList();
             List<int> drivesList = drives.OfType<int>().ToList();
 
-            
+
 
 
             if (keyboards.Min() + drives.Min() > b)
@@ -531,14 +531,14 @@ namespace HackerRank_Problem_Solving
 
         }
 
-        public int DesignerPdfViewer(int[]h, string word)
+        public int DesignerPdfViewer(int[] h, string word)
         {
             int tallestLetter = 0;
 
             for (int i = 0; i < word.Length; i++)
             {
                 Console.WriteLine((int)word[i]);
-                if (h[(int)word[i] -97] > tallestLetter)
+                if (h[(int)word[i] - 97] > tallestLetter)
                 {
                     tallestLetter = h[(int)word[i] - 97];
                 }
@@ -633,7 +633,7 @@ namespace HackerRank_Problem_Solving
 
             energy -= c[i] * 2 + 1;
 
-            while ( i != 0)
+            while (i != 0)
             {
                 i = (i + k) % numberOfClouds;
                 energy -= c[i] * 2 + 1;
@@ -658,12 +658,12 @@ namespace HackerRank_Problem_Solving
             foreach (var digit in listOfDigits)
             {
 
-                if (digit !=0)
+                if (digit != 0)
                 {
                     if (n % digit == 0)
                     {
                         totalDigitsThatDivide++;
-                    } 
+                    }
                 }
             }
 
@@ -673,9 +673,9 @@ namespace HackerRank_Problem_Solving
         public BigInteger ExtraLongFactorial(int n)
         {
             BigInteger factorial = new BigInteger(1);
-            
 
-            while (n!=1)
+
+            while (n != 1)
             {
                 factorial = factorial * n;
                 n--;
@@ -689,7 +689,7 @@ namespace HackerRank_Problem_Solving
             var sLength = s.Length;
             var tLength = t.Length;
 
-            if (sLength + tLength < k) 
+            if (sLength + tLength < k)
                 return "Yes";
 
             var minLength = Math.Min(sLength, tLength);
@@ -713,9 +713,131 @@ namespace HackerRank_Problem_Solving
             return "No";
         }
 
-        
+        public int Squares(int a, int b)
+        {
+            return (int)(Math.Floor(Math.Sqrt(b)) - Math.Ceiling(Math.Sqrt(a)) + 1);
+        }
 
+        public int LibraryFine(int d1, int m1, int y1, int d2, int m2, int y2)
+        {
+            
+            if (y1 < y2)
+            {
+                return 0;    
+            }
 
+            if (y1>y2)
+            {
+                return 10000;
+            }
 
-    }   
+            if (m1 < m2)
+            {
+                return 0;
+            }
+
+            if (m1 > m2)
+            {
+                return(500 * (m1 - m2));
+            }
+
+            if (d1<d2)
+            {
+                return 0;
+            }
+            
+            if (d1>d2)
+            {
+                return (d1 - d2) * 15;
+            }
+
+            return 0;
+            
+
+        }
+
+        public int[] CountTheSticks(int[] arr)
+        {
+            int[] result = new int[1000];
+            List<int> list = new List<int>();
+            List<int> listResults = new List<int>();
+
+            int min = 0;
+
+            list = arr.ToList();
+
+            while (list.Count() > 0)
+            {
+                listResults.Add(list.Count());
+                min = list.Min();
+                list = list.Select(x => x - min).Where(x => x > 0).ToList();
+            }
+
+            result = listResults.ToArray();
+
+            return result;
+
+        }
+
+        public long RepeatedString(string s, long n)
+        {
+            long result = 0;
+            var chars = s.ToCharArray();
+
+            foreach (var character in chars)
+            {
+                if (character == 'a')
+                {
+                    result++;
+                }
+            }
+
+            var multiplier = Math.Floor((decimal)(n / chars.Length));
+
+            result = result * (long)multiplier;
+
+            var remainingNumberOfCharacter = n % chars.Length;
+
+            for (int i = 0; i < remainingNumberOfCharacter; i++)
+            {
+                if (chars[i] == 'a')
+                {
+                    result++;
+                }
+            }
+
+            return result;
+        }
+
+        public int JumpingOnClouds(int[] c)
+        {
+            var result = 0;
+            var i = 0;
+            var cloudsLenght = c.Length;
+
+            do
+            {
+                if (i+1 == cloudsLenght-1)
+                {
+                    
+                    result++;
+                    break;
+                }
+                if (c[i + 2] == 0)
+                {
+                    i += 2;
+                    result++;
+                }
+                else
+                {
+                    i++;
+                    result++;
+                }
+            }
+            while (i < cloudsLenght-1);
+
+            return result;
+        }
+
+    }
 }

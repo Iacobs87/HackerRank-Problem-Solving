@@ -607,6 +607,77 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        [TestProperty("LibraryFine", "https://www.hackerrank.com/challenges/library-fine/problem")]
+        public void LibraryFine()
+        {
+            //arrange
+            var test = new Result();
+            var d1 = 6;
+            var m1 = 6;
+            var y1 = 2015;
+            var d2 = 9;
+            var m2 = 6;
+            var y2 = 2016;
+            var expected = 0;
+
+            //act 
+            var actual = test.LibraryFine(d1, m1, y1, d2, m2, y2);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("CountTheStick", "https://www.hackerrank.com/challenges/cut-the-sticks/problem")]
+        public void CutTheSticks()
+        {
+            //arrange
+            var test = new Result();
+            var arr = new int[] { 1, 13, 3, 8, 14, 9, 4, 4 };
+            var expected = new int[] { 8, 7, 6, 4, 3, 2, 1 };
+
+            //act 
+            var actual = test.CountTheSticks(arr);
+
+            //assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+
+        [TestMethod]
+        [TestProperty("RepeatingString", "https://www.hackerrank.com/challenges/repeated-string/problem")]
+        public void RepeatingString()
+        {
+            //arrange
+            var test = new Result();
+            var s = "aba";
+            var n = 10;
+            var expected = 7;
+
+            //act 
+            var actual = test.RepeatedString(s, n);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestProperty("JumpingTheClouds", "https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem")]
+        public void JumpingTheClouds()
+        {
+            //arrange
+            var test = new Result();
+            var c = new int[] { 0, 0, 0, 1, 0, 0};
+            var expected = 3;
+
+            //act 
+            var actual = test.JumpingOnClouds(c);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         [TestProperty("Name", "Link")]
         public void s()
         {
